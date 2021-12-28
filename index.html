@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- start head content -->
+<head>
+    <!-- start tittle -->
+    <title>Clone codepen </title>
+    <!-- link html to css-->
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<!-- end head content -->
+
+<body>
+    <!-- start navbar -->
+    <div class="codepen" id="codepen">
+        <header class="header">
+             <!-- Start header content-->
+            <div class="header__details">
+                <h1>Developer</h1>
+            </div>
+            <!-- Start Button Class -->
+            <button class="button">Save Your Code</button>
+            <button class="button" onclick="ChangeView()">Change View</button>
+            <button class="button">Login</button>
+            <button class="button">Sign Up</button>
+        <!--  header end -->
+        </header>
+        <!-- start section class -->
+
+        <section class="main-content" id="main-contents">
+            <!-- class use for html css javascript code-->
+        <div class="code" id="main-code">
+            <!-- For Html-->
+            <div class="editor">
+                <!-- use for heading-->
+                <header class="editor-header">
+                    <h2 class="editor-heading">HTML</h2>
+
+                </header>
+                <div class="editor-code" id="html-code">
+                    <!-- oninput Event-->
+                    <textarea class="editor-input" type="code" id="html-input"
+                        oninput="onInput()" placeholder="Write Your HTML code"></textarea>
+                </div>
+            </div>
+            <!-- For Css -->
+            <div class="editor">
+                <header class="editor-header">
+                    <h2 class="editor-heading">CSS</h2>
+
+                </header>
+                <div class="editor-code" id = "css-code">
+                    <!-- oninput Event-->
+                    <textarea class="editor-input" id="css-input" oninput="onInput()"  placeholder="Write Your CSS code"></textarea>
+                </div>
+            </div>
+             <!-- For Js -->
+            <div class="editor">
+                <header class="editor-header">
+                    <h3 class="editor-heading">JS</h3>
+
+                </header>
+                <div class="editor-code" id = "js-code">
+                     <!-- oninput Event-->
+                    <textarea class="editor-input" id="js-editor" oninput="onInput()"  placeholder="Write Java Script code"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="preview" id="preview">
+            <iframe src="" frameborder="0" id="iframe"></iframe>
+        </div>
+        <!-- section end-->
+    </section>
+    <!-- footer Start-->
+        <footer class="settings">
+            <button class="button button--small button--black">Console</button>
+            <button class="button button--small button--black">Assets</button>
+            <!-- Footer end -->
+        </footer>
+        
+        <!-- navbar end -->
+    </div>
+
+</body>
+<!-- Scrpit  Code Here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    
+<script>
+    //Start oninput function here
+    function onInput() {
+        var iframe = document.getElementById('iframe');
+        var html = document.getElementById('html-input').value;
+        var css = document.getElementById('css-input').value;
+        var js = document.getElementById('js-editor').value;
+
+        iframe.srcdoc = html + "<style>" + css + "</style>" + "<script>" + js + "<\/script>";
+        console.log(iframe.srcdoc);
+    }
+    function ChangeView(){
+        var code = document.getElementById('main-code');
+        var main =document.getElementById('main-contents');
+        main.className=="main-content"?main.className = "main-content-layout2":main.className="main-content"
+        code.className=="code"?code.className = "code-layout2":code.className="code"
+        
+    }
+</script>
+
+</html>
